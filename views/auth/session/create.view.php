@@ -1,48 +1,46 @@
 <?php require base_path("views/partials/head.php") ?>
-<?php require base_path("views/partials/nav.php") ?>
 	
 	<main>
-		<div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
-			<div class="sm:mx-auto sm:w-full sm:max-w-sm">
-				<img class="mx-auto h-10 w-auto" src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600" alt="Your Company">
-				<h2 class="mt-10 text-center text-2xl/9 font-bold tracking-tight text-gray-900">Login here!</h2>
-			</div>
-			
-			<div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-				<form class="space-y-6" action="/session" method="POST">
-					<div>
-						<label for="email" class="block text-sm/6 font-medium text-gray-900">Email address</label>
-						<div class="mt-2">
-							<input type="text" name="email" id="email" autocomplete="email" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
-						</div>
-						<?php if(isset($errors['email'])): ?>
-							<p class="text-red-500 text-sm"><?= $errors['email'] ?></p>
-						<?php endif; ?>
-					</div>
-					
-					<div>
-						<div class="flex items-center justify-between">
-							<label for="password" class="block text-sm/6 font-medium text-gray-900">Password</label>
-						</div>
-						<div class="mt-2">
-							<input type="password" name="password" id="password" autocomplete="current-password" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
-						</div>
-						<?php if(isset($errors['password'])): ?>
-							<p class="text-red-500 text-sm"><?= $errors['password'] ?></p>
-						<?php endif; ?>
-					</div>
-					
-					<div>
-						<button type="submit" class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Login</button>
-					</div>
-				</form>
-				
-				<p class="mt-10 text-center text-sm/6 text-gray-500">
-					Don't have an account?
-					<a href="/register" class="font-semibold text-indigo-600 hover:text-indigo-500">Register here</a>
-				</p>
-			</div>
-		</div>
+	<div class="w-full max-w-sm mx-auto mt-30 overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800">
+    <div class="px-6 py-4">
+        <div class="flex justify-center mx-auto">
+            <img class="w-auto h-7 sm:h-8" src="https://merakiui.com/images/logo.svg" alt="">
+        </div>
+
+        <h3 class="mt-3 text-xl font-medium text-center text-gray-600 dark:text-gray-200">Welcome Back</h3>
+
+        <p class="mt-1 text-center text-gray-500 dark:text-gray-400">Login or create account</p>
+
+        <form action="/session" method="POST">
+            <div class="w-full mt-4">
+                <input class="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-500 bg-white border rounded-lg dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring focus:ring-blue-300" type="email" name="email" id="email" placeholder="Email Address" aria-label="Email Address" />
+                <?php if(isset($errors['email'])): ?>
+				<p class="text-red-500 text-sm"><?= $errors['email'] ?></p>
+			<?php endif; ?>
+            </div>
+
+            <div class="w-full mt-4">
+                <input class="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-500 bg-white border rounded-lg dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring focus:ring-blue-300" type="password" name="password" id="password" placeholder="Password" aria-label="Password" />
+                <?php if(isset($errors['password'])): ?>
+				<p class="text-red-500 text-sm"><?= $errors['password'] ?></p>
+			<?php endif; ?>
+            </div>
+
+            <div class="flex items-center justify-center mt-4">
+
+                <button class="px-6 py-2 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-lg hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
+                    Sign In
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <div class="flex items-center justify-center py-4 text-center bg-gray-50 dark:bg-gray-700">
+        <span class="text-sm text-gray-600 dark:text-gray-200">Don't have an account? </span>
+
+        <a href="/register" class="mx-2 text-sm font-bold text-blue-500 dark:text-blue-400 hover:underline">Register</a>
+    </div>
+</div>
 	
 	</main>
 

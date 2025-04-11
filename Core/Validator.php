@@ -15,4 +15,10 @@ class Validator
 	{
 		return filter_var($value, FILTER_VALIDATE_EMAIL);
 	}
+    public static function picture($value): bool
+    {   
+        $allowed = ['jpg', 'jpeg', 'png'];
+
+        return in_array(pathinfo($value, PATHINFO_EXTENSION), $allowed );
+    }
 }

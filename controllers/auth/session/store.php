@@ -34,7 +34,8 @@ $user = $db->query('select * from users where email = :email', [
 if ($user) {
 	if (password_verify($password, $user['password'])) {
 		login([
-			'email' => $email
+			'email' => $email,
+			'name' => $user['name']
 		]);
 		
 		header('location: /');
