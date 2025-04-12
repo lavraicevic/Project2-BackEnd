@@ -6,6 +6,7 @@ use Core\Validator;
 
 $db = App::resolve(Database::class);
 
+
 $errors = [];
 
 if (! Validator::picture($_FILES['picture']['name'])) {
@@ -31,10 +32,15 @@ if (! empty($errors)) {
 }
 
 $db->query('INSERT INTO posts(title, user_id, body) VALUES(:title, :user_id, :body)', [
-    'title' => $_POST['title'], 'user_id' => 1, 'body' => $_POST['body']
+    'title' => $_POST['title'], 
+    'user_id' => 1,
+    'body' => $_POST['body'],
+    'category_id' => $_POST['category'],
+    'video_url' => $_POST['link'],
+    'picture' => $_FILES['picture']['name']
 ]);
 
-header('Location: /posts');
+header('Location: /');
 
 exit;
 
