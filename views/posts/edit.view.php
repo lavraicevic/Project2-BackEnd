@@ -1,9 +1,9 @@
 <?php require base_path("views/partials/head.php") ?><?php require base_path("views/partials/nav.php") ?><?php require base_path("views/partials/banner.php") ?>
 	
 	<div class="container mx-auto">
-		<form method="POST" action="/note">
+		<form method="POST" action="/post">
 			<input type="hidden" name="_method" value="PATCH">
-			<input type="hidden" name="id" value="<?= $note['id'] ?>">
+			<input type="hidden" name="id" value="<?= $post['id'] ?>">
 			<div class="space-y-12">
 				<div class="border-b border-gray-900/10 pb-12">
 					
@@ -12,8 +12,8 @@
 							<label for="username" class="block text-sm/6 font-medium text-gray-900">Title</label>
 							<div class="mt-2">
 								<div class="flex items-center rounded-md bg-white pl-3 outline-1 -outline-offset-1 outline-gray-300 focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-600">
-									<input type="text" name="title" id="username" value="<?= $note['title'] ?>"
-										   class="block min-w-0 grow py-1.5 pr-3 pl-1 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6">
+									<input type="text" name="title" id="username" value="<?= $post['title'] ?>"
+									class="block min-w-0 grow py-1.5 pr-3 pl-1 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6">
 								</div>
 								<?php if (isset($errors['title'])): ?>
 									<p class="text-red-500 text-sm"><?= $errors['title'] ?></p>
@@ -24,7 +24,7 @@
 						<div class="col-span-full">
 							<label for="body" class="block text-sm/6 font-medium text-gray-900">Body</label>
 							<div class="flex items-center rounded-md bg-white pl-3 outline-1 -outline-offset-1 outline-gray-300 focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-600">
-								<input type="text" name="body" id="body" value="<?= $note['body'] ?>"
+								<input type="text" name="body" id="body" value="<?= $post['body'] ?>"
 									   class="block min-w-0 grow py-1.5 pr-3 pl-1 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6">
 							</div>
 							
@@ -38,7 +38,7 @@
 			</div>
 			
 			<div class="mt-6 flex items-center justify-start gap-x-6">
-				<a href="/notes" class="rounded-md bg-gray-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-gray-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Cancel</a>
+				<a href="/post$posts" class="rounded-md bg-gray-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-gray-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Cancel</a>
 				<button type="submit"
 						class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
 					Update
@@ -46,14 +46,14 @@
 			</div>
 		</form>
 		
-					<form method="POST" action="/note">
-						<input type="hidden" name="_method" value="DELETE">
-						<input type="hidden" name="id" value="<?= $note['id'] ?>">
-						
-						<input type="hidden" name="_method" value="DELETE">
-						
-						<button type="submit" class="block mt-10 bg-red-500 text-white w-fit px-3 py-2">Delete note</button>
-					</form>
+		<form method="POST" action="/post$post">
+			<input type="hidden" name="_method" value="DELETE">
+			<input type="hidden" name="id" value="<?= $post['id'] ?>">
+			
+			<input type="hidden" name="_method" value="DELETE">
+			
+			<button type="submit" class="block mt-10 bg-red-500 text-white w-fit px-3 py-2">Delete post$post</button>
+		</form>
 	</div>
 
 <?php require base_path("views/partials/footer.php") ?>

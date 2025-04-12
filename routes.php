@@ -15,19 +15,20 @@ $router->patch('/post', 'controllers/posts/update.php')->only('auth');
 $router->get('/post/create', 'controllers/posts/create.php')->only('auth');
 $router->post('/post', 'controllers/posts/store.php')->only('auth');
 
+
+$router->delete('/session', 'controllers/auth/session/destroy.php')->only('auth');
+
 /** Guest routes */
 $router->get('/register', 'controllers/auth/register/create.php')->only('guest');
 $router->post('/register', 'controllers/auth/register/store.php')->only('guest');
 
 $router->get('/login', 'controllers/auth/session/create.php')->only('guest');
 $router->post('/session', 'controllers/auth/session/store.php')->only('guest');
-$router->delete('/session', 'controllers/auth/session/destroy.php')->only('auth');
 
 // AUThenticated routes
 
 $router->get('/posts', 'controllers/posts/index.php')->only('auth');
 
-$router->get('/note/create', 'controllers/notes/create.php')->only('auth');
-$router->post('/note', 'controllers/notes/store.php')->only('auth');
+
 
 

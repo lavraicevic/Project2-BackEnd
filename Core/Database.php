@@ -22,7 +22,6 @@
         
         public function query($query, $params = [])
         {
-            var_dump($params);
             $this->statement = $this->connection->prepare($query);
             
             $this->statement->execute($params);

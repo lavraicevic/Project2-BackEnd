@@ -31,7 +31,7 @@ if (! empty($errors)) {
     ]);
 }
 
-$db->query('INSERT INTO posts(title, user_id, body) VALUES(:title, :user_id, :body)', [
+$db->query('INSERT INTO posts(title, user_id, body, category_id, video_url, picture) VALUES(:title, :user_id, :body, :category_id, :video_url, :picture)', [
     'title' => $_POST['title'], 
     'user_id' => 1,
     'body' => $_POST['body'],
