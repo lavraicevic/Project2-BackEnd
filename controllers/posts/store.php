@@ -31,7 +31,7 @@ if (! empty($errors)) {
     ]);
 }
 
-$targetDir = $_SERVER['DOCUMENT_ROOT'] . trim("\assets\ ");
+$targetDir = $_SERVER['DOCUMENT_ROOT'] . trim("/assets/ ");
 
     
 if (! file_exists($targetDir)) {
@@ -48,12 +48,12 @@ $db->query('INSERT INTO posts(title, user_id, body, category_id, video_url, pict
     'body' => $_POST['body'],
     'category_id' => $_POST['category'],
     'video_url' => $_POST['link'],
-    'picture' => $_FILES['picture']['name'],
+    'picture' => time().'_'.$_FILES['picture']['name'],
     'picture_path' => $file
 ]);
 
 
-header('Location: /');
+header('Location: /posts');
 
 exit;
 
