@@ -3,18 +3,21 @@
 use Core\App;
 use Core\Database;
 
-$heading = 'Edit Note';
+$heading = 'Edit post';
 
 $db = App::resolve(Database::class);
 
 $userId = 1;
-$note = $db->query("select * from notes where id = :id", ['id' => $_GET['id']])->findOrFail();
-
-authorize($note['user_id'] === $userId);
+$post = $db->query("select * from posts where id = :id", ['id' => $_GET['id']])->findOrFail();
 
 
-view('notes/edit', [
+
+
+authorize($post['user_id'] === $userId);
+
+
+view('posts/edit', [
 	'heading' => $heading,
 	'errors' => [],
-	'note' => $note
+	'post' => $post
 ]);

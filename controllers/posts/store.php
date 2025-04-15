@@ -31,14 +31,27 @@ if (! empty($errors)) {
     ]);
 }
 
-$db->query('INSERT INTO posts(title, user_id, body, category_id, video_url, picture) VALUES(:title, :user_id, :body, :category_id, :video_url, :picture)', [
+$targetDir = $_SERVER['DOCUMENT_ROOT'] . trim("\assets\ ");
+
+    
+if (! file_exists($targetDir)) {
+    mkdir($targetDir, 0777, true);
+}
+
+$file = $targetDir.time().'_'.$_FILES['picture']['name'];
+
+move_uploaded_file($_FILES['picture']['tmp_name'], $file);
+
+$db->query('INSERT INTO posts(title, user_id, body, category_id, video_url, picture, picture_path) VALUES(:title, :user_id, :body, :category_id, :video_url, :picture, :picture_path)', [
     'title' => $_POST['title'], 
     'user_id' => 1,
     'body' => $_POST['body'],
     'category_id' => $_POST['category'],
     'video_url' => $_POST['link'],
-    'picture' => $_FILES['picture']['name']
+    'picture' => $_FILES['picture']['name'],
+    'picture_path' => $file
 ]);
+
 
 header('Location: /');
 
