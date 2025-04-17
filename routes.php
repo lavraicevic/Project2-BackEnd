@@ -29,6 +29,10 @@ $router->post('/session', 'controllers/auth/session/store.php')->only('guest');
 
 $router->get('/posts', 'controllers/posts/index.php')->only('auth');
 
+// API routes
+
+$router->get('/API/posts', 'controllers/API/posts.php')->only('auth');
+
 
 
 
