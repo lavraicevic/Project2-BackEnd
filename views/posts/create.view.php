@@ -4,6 +4,7 @@
 
 
 <div class="mt-10 w-4/5 min-h-screen px-2 mx-auto">
+  
 <h1 class="text-center text-3xl font-bold">Create post</h1>
   <form method="POST" action="/post" enctype="multipart/form-data">
     <div class="relative flex items-center mt-8">

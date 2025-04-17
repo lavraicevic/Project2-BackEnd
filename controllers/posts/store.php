@@ -44,7 +44,7 @@ move_uploaded_file($_FILES['picture']['tmp_name'], $file);
 
 $db->query('INSERT INTO posts(title, user_id, body, category_id, video_url, picture, picture_path) VALUES(:title, :user_id, :body, :category_id, :video_url, :picture, :picture_path)', [
     'title' => $_POST['title'], 
-    'user_id' => 1,
+    'user_id' => $_SESSION['user']['id'],
     'body' => $_POST['body'],
     'category_id' => $_POST['category'],
     'video_url' => $_POST['link'],
@@ -53,7 +53,7 @@ $db->query('INSERT INTO posts(title, user_id, body, category_id, video_url, pict
 ]);
 
 
-header('Location: /posts');
+header('Location: /');
 
 exit;
 

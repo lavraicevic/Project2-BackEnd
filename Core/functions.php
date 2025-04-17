@@ -50,10 +50,7 @@ function view($path, $attributes = [])
 
 function login($user): void
 {
-	$_SESSION['user'] = [
-		'email' => $user['email'],
-		'name' => $user['name']
-	];
+	$_SESSION['user'] = $user;
 	
 	session_regenerate_id(true);
 }
