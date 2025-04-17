@@ -7,8 +7,6 @@ $db = App::resolve(Database::class);
 
 $posts = $db->query('SELECT * FROM POSTS');
 
-$data = [];
-
-$data = $posts->get(MYSQLI_ASSOC);
+$data = $posts->get();
 
 echo json_encode($data);

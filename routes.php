@@ -31,7 +31,7 @@ $router->get('/posts', 'controllers/posts/index.php')->only('auth');
 
 // API routes
 
-$router->get('/API/posts', 'controllers/API/posts.php')->only('auth');
+$router->get('/api/posts', 'controllers/API/posts.php');
 
 
 
