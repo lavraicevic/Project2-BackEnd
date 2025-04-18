@@ -13,7 +13,8 @@ header('Access-Control-Allow-Headers: X-Requested-With,Authorization,Content-Typ
 
 $db = App::resolve(Database::class);
 
-$posts = $db->query('SELECT * FROM POSTS');
+$posts = $db->query('SELECT p.*, u.name as author_name, c.name as category_name FROM posts p INNER JOIN users u ON p.user_id = u.id LEFT JOIN categories c ON p.category_id = c.id ORDER BY p.created_at DESC');
+
 
 $data = $posts->get();
 
