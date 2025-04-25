@@ -29,6 +29,9 @@ $router->post('/session', 'controllers/auth/session/store.php')->only('guest');
 
 $router->get('/posts', 'controllers/posts/index.php')->only('auth');
 
+// Comment route
+$router->post('/comment', 'controllers/comments/create.php');
+
 // API routes
 $router->get('/api/posts', 'controllers/API/posts.php');
 $router->get('/api/events', 'controllers/API/events.php');
